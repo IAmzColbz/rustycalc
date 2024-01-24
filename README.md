@@ -12,4 +12,4 @@ chmod +x ./rustycalc && ./rustycalc
 ```
 
 *for mac users*
-¯\_(ツ)_/¯
+¯\\_(ツ)_/¯
