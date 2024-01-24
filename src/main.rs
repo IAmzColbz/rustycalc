@@ -18,7 +18,7 @@ fn input_float() -> f64 {
     };
 }
 
-fn input_int() -> i64 {
+fn input_int() -> usize {
     loop {
         let mut user_int: String = String::new();
         io::stdin()
@@ -100,8 +100,8 @@ fn main() {
     println!("{first_num}  {user_op}  {second_num}");
     let result: f64 = calculate(first_num, second_num, user_op);
     println!("How many digits would you like to round to?");
-    let round: i64 = input_int();
+    let round: usize = input_int();
     clear();
     println!("{first_num}  {user_op}  {second_num}");
-    println!("The answer is {:.1$}.", result, round as usize);
+    println!("The answer is {:.1$}.", result, round);
 }

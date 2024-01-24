@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "rustycalc"
-version = "0.1.0"
+name = "rusty_calculator"
+version = "1.0.1"
