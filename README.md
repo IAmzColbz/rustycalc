@@ -13,3 +13,5 @@ chmod +x ./rustycalc && ./rustycalc
 
 *for mac users:*
 ¯\_(ツ)_/¯
+
+This program uses 64 bit floating point precision meaning **sure** you *could* round to a thousand digits, but its going to stop computing the floating point after only a few digits, and even before that its accuracy drops drastically. keep that in mind.
