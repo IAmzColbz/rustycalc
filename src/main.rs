@@ -1,5 +1,5 @@
-use std::io;
 use std::env;
+use std::io;
 
 fn input_float() -> f64 {
     loop {
@@ -12,10 +12,10 @@ fn input_float() -> f64 {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Float");
-                continue
-            },
+                continue;
+            }
         };
-    };
+    }
 }
 
 fn input_int() -> usize {
@@ -29,15 +29,14 @@ fn input_int() -> usize {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Integer");
-                continue
+                continue;
             }
-            
         };
-    };
+    }
 }
 
 fn input_operand() -> &'static str {
-    loop{
+    loop {
         let mut user_operand: String = String::new();
         io::stdin()
             .read_line(&mut user_operand)
@@ -49,34 +48,29 @@ fn input_operand() -> &'static str {
             "/" => return "/",
             _ => {
                 println!("Invalid Operand");
-                continue
+                continue;
             }
         };
-    };
+    }
 }
 
 fn clear() {
     match env::consts::OS {
-        "windows" => {std::process::Command::new("cls").status().unwrap();},
-        _ => {std::process::Command::new("clear").status().unwrap();},
+        "windows" => {
+            std::process::Command::new("cls").status().unwrap();
+        }
+        _ => {
+            std::process::Command::new("clear").status().unwrap();
+        }
     }
-    
 }
 
-fn calculate(first_number: f64, second_number: f64, operand:&str ) -> f64 {
+fn calculate(first_number: f64, second_number: f64, operand: &str) -> f64 {
     match operand {
-        "+" => {
-            first_number + second_number
-        },
-        "-" => {
-            first_number - second_number
-        },
-        "*" => {
-            first_number * second_number
-        },
-        "/" => {
-            first_number / second_number
-        },
+        "+" => first_number + second_number,
+        "-" => first_number - second_number,
+        "*" => first_number * second_number,
+        "/" => first_number / second_number,
         _ => {
             panic!("No *valid* operand provided.");
         }
