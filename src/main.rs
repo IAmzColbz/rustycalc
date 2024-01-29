@@ -8,15 +8,14 @@ fn input_float() -> f64 {
         io::stdin()
             .read_line(&mut user_float)
             .expect("Failed to read line...");
-            // Reads User input
+        // Reads User input
 
         match user_float.trim().parse() {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Float");
                 continue;
-            // Makes sure the user input is valid
-
+                // Makes sure the user input is valid
             }
         };
     }
@@ -28,14 +27,14 @@ fn input_int() -> usize {
         io::stdin()
             .read_line(&mut user_int)
             .expect("Failed to read line...");
-            // Reads user input
+        // Reads user input
 
         match user_int.trim().parse() {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Integer");
                 continue;
-            // Validation match
+                // Validation match
             }
         };
     }
@@ -56,7 +55,7 @@ fn input_operand() -> &'static str {
             _ => {
                 println!("Invalid Operand");
                 continue;
-            // Validation match
+                // Validation match
             }
         };
     }
