@@ -1,5 +1,6 @@
 use std::io;
 use std::env;
+use std::process::Command;
 
 fn input_float() -> f64 {
     loop {
@@ -7,12 +8,15 @@ fn input_float() -> f64 {
         io::stdin()
             .read_line(&mut user_float)
             .expect("Failed to read line...");
+            // Reads User input
 
         match user_float.trim().parse() {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Float");
                 continue
+            // Makes sure the user input is valid
+
             },
         };
     };
@@ -24,12 +28,14 @@ fn input_int() -> usize {
         io::stdin()
             .read_line(&mut user_int)
             .expect("Failed to read line...");
+            // Reads user input
 
         match user_int.trim().parse() {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Integer");
                 continue
+            // Validation match
             }
             
         };
@@ -42,6 +48,7 @@ fn input_operand() -> &'static str {
         io::stdin()
             .read_line(&mut user_operand)
             .expect("Failed to read line...");
+
         match user_operand.trim() {
             "+" => return "+",
             "-" => return "-",
@@ -50,20 +57,29 @@ fn input_operand() -> &'static str {
             _ => {
                 println!("Invalid Operand");
                 continue
+            // Validation match
             }
         };
     };
 }
 
 fn clear() {
-    match env::consts::OS {
-        "windows" => {std::process::Command::new("cls").status().unwrap();},
-        _ => {std::process::Command::new("clear").status().unwrap();},
+    if env::consts::OS == "windows" {
+        // On Windows, use the "cls" command
+        Command::new("cmd")
+            .args(&["/C", "cls"])
+            .status()
+            .expect("Failed to clear screen");
+    } else {
+        // On other platforms, use the "clear" command
+        Command::new("clear")
+            .status()
+            .expect("Failed to clear screen");
     }
-    
 }
 
 fn calculate(first_number: f64, second_number: f64, operand:&str ) -> f64 {
+    // Using the input operand, match to the correct calculation requirement
     match operand {
         "+" => {
             first_number + second_number
@@ -104,4 +120,5 @@ fn main() {
     clear();
     println!("{first_num}  {user_op}  {second_num}");
     println!("The answer is {:.1$}.", result, round);
+    // Syntactically, {:.1$} just rounds the result to the 'round' integer with $ being the insertion.
 }
