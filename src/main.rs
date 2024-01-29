@@ -1,4 +1,3 @@
-use std::io;
 use std::env;
 use std::process::Command;
 
@@ -14,12 +13,12 @@ fn input_float() -> f64 {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Float");
-                continue
+                continue;
             // Makes sure the user input is valid
 
-            },
+            }
         };
-    };
+    }
 }
 
 fn input_int() -> usize {
@@ -34,16 +33,15 @@ fn input_int() -> usize {
             Ok(num) => return num,
             Err(_) => {
                 println!("Invalid Integer");
-                continue
+                continue;
             // Validation match
             }
-            
         };
-    };
+    }
 }
 
 fn input_operand() -> &'static str {
-    loop{
+    loop {
         let mut user_operand: String = String::new();
         io::stdin()
             .read_line(&mut user_operand)
@@ -56,11 +54,11 @@ fn input_operand() -> &'static str {
             "/" => return "/",
             _ => {
                 println!("Invalid Operand");
-                continue
+                continue;
             // Validation match
             }
         };
-    };
+    }
 }
 
 fn clear() {
@@ -78,21 +76,13 @@ fn clear() {
     }
 }
 
-fn calculate(first_number: f64, second_number: f64, operand:&str ) -> f64 {
+fn calculate(first_number: f64, second_number: f64, operand: &str) -> f64 {
     // Using the input operand, match to the correct calculation requirement
     match operand {
-        "+" => {
-            first_number + second_number
-        },
-        "-" => {
-            first_number - second_number
-        },
-        "*" => {
-            first_number * second_number
-        },
-        "/" => {
-            first_number / second_number
-        },
+        "+" => first_number + second_number,
+        "-" => first_number - second_number,
+        "*" => first_number * second_number,
+        "/" => first_number / second_number,
         _ => {
             panic!("No *valid* operand provided.");
         }
