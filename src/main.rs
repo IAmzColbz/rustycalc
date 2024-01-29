@@ -111,4 +111,7 @@ fn main() {
     println!("{first_num}  {user_op}  {second_num}");
     println!("The answer is {:.1$}.", result, round);
     // Syntactically, {:.1$} just rounds the result to the 'round' integer with $ being the insertion.
+
+    println!("\nEnter anything to exit...");
+    io::stdin().read_line(&mut String::new()).unwrap();
 }
