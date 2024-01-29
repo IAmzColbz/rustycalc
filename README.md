@@ -2,7 +2,8 @@ This is a quick program I rewrote in Rust from my original python calculator. Th
 The only operations in this version, much like my python calculator, are addition, subtraction, multiplication, and division.
 
 *To run on Windows:*
-There are two releases, a raw binary for linux and an exe for windows. Simply download the .exe version and open it as an application. Tested on Windows 11 devkit VM
+There are two releases, a raw binary for linux and an exe for windows. Simply download the .exe version and open it as an application, it will trip windows defender because it is an unsigned exe file. To bypass the prompt, just hit the extra context menu in the popup and hit 'run anyway.' All the source code is in the repo if you want to verify that it's not malicious.
+Tested on Windows 11 devkit VM
 
 *To run on Linux:*
 Download the application/executable file to a directory of your choice. Open that directory via CLI and type the following commands:
